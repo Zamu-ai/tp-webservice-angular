@@ -1,0 +1,28 @@
+<div class="pantalla-oscura">
+    <h2 class="titulo-seccion">CONVERSOR DE MONEDA</h2>
+    <form (ngSubmit)="convertidorFunc()" class="conversor-form">
+        <div class="campo">
+            <label class="card-titulo">Moneda Origen: </label>
+            <select class="form-control" [(ngModel)]="monedaOrigen" required  name="monedaOrig" >
+                <option *ngFor="let moneda of arrayCambios" [value]="moneda"> {{moneda}}</option>
+            </select>
+        </div>
+
+        <div class="campo">
+             <label class="card-titulo">monto: </label>
+            <input type="number" [(ngModel)]="monto" name="mon">
+        </div>
+
+        <div class="campo">
+            <label class="card-titulo">Moneda a cambiar: </label>
+            <select class="form-control"  [(ngModel)]="monedaResultante" name="monedaResul" >
+                <option *ngFor="let moneda of arrayCambios" [value]="moneda" >{{moneda | json}}</option>
+            </select>
+        </div>
+        
+        <button class="card-titulo" type="submit">CONVERTIR</button>
+    </form>
+    <div class="resultado">
+        <h2 >{{montoConvertido}}</h2>
+    </div>
+</div>

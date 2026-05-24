@@ -1,0 +1,20 @@
+<div class="pantalla-oscura">
+    <h1 class="titulo-seccion">CONVERTIDOR DE TEXTO A AUDIO</h1>
+    <form (ngSubmit)="textoAvoz()" class="conversor-form">
+        <div class="mb-20">
+            <label class="card-titulo bg bg-light">INGRESAR TEXTO</label>
+            <input  type="text" class="form-control" [(ngModel)]="texto" name="beforeAudio">
+        </div>
+        <div class="mb-20">
+            <br>
+            <select class="form-control" [(ngModel)]=" vozSeleccionada" name="selectorVoz">
+                <option *ngFor="let voces of vocesDisponibles" [value]="voces.id">{{voces.nombre}}</option>
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit" >CONVERTIR</button>
+    </form>
+    <div class="resultado">
+        <h3 class="card-titulo">AUDIO GENERADO</h3>
+            <audio controls autoplay class="audio-player" [src]="audioUrl"></audio>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="pantalla-oscura">
+    <h1 class="titulo-seccion">CATALOGO DE PELICULA</h1>
+    <div class="conteiner-grid">
+        <div class="card" *ngFor="let pelis of data" >
+            <img class="card-image" [src]="pelis.image"/>
+            <div class="peli-info-top"></div>
+            <h3 class="card-titulo ps-2">{{pelis.title}}</h3>
+            <p class="card-descripcion px-2">{{pelis.description}}</p>
+            <div class="d-flex flex-row flex-wrap px-3">
+                <p class="px-2">Gen: </p>
+                <p class="bg-danger rounded-pill px-3">{{pelis.genre[0]}}</p>
+                <p class="bg-primary rounded-pill px-3">{{pelis.genre[1]}}</p>    
+                <p class="bg-success rounded-pill px-3" *ngIf="pelis.genre[2]">{{pelis.genre[2]}}</p>
+             </div>
+        </div>
+    </div>
+</div>
+
+ 

@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+.pantalla-oscura {
+    background-color: #121212; /* Fondo oscuro general estilo Netflix/Cine */
+    min-height: 100vh;         /* Asegura que cubra todo el alto de la pantalla */
+    padding: 0,5rem 1rem;        /* Margen interno para que respire */
+}
+/* Título principal de la sección */
+.titulo-seccion {
+    color: #f04949;
+    margin-bottom: 1,2rem;
+    padding-left: 1rem;
+    text-shadow: 3px 2px 4px rgba(196, 191, 191, 0.6);
+    font-size: 5rem;
+    font-weight:650;
+    text-align: center;
+  }
+
+/* Contenedor gris oscuro de fondo (estilo Netflix) */
+.conteiner-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+/* Tarjeta individual de la película con borde e iluminación */
+.card{
+      width: 25rem;
+    background-color: #1f2124; /* bg-secondary de Bootstrap */
+    color: #ffffff;
+    border: 3px solid #dfbc0d; /* Borde oscuro visible */
+    border-radius: 12px;       /* Esquinas redondeadas */
+    overflow: hidden;          /* Corta la imagen para que respete el redondeado */
+    box-shadow: 0 7px 10px rgba(166, 125, 1, 0.6); /* Sombra externa */
+    display: flex;
+    flex-direction: column;
+}
+
+.conversor-form {
+    max-width: 500px;
+    margin: 0 auto;
+    background: #1f2124;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #dfbc0d;
+}
+
+
+.card:hover{
+    background-color: rgb(138, 108, 26);
+    transform: translateY(-20px); 
+}
+
+
+/* Ajuste del tamaño del póster para que no se deforme */
+.card-image {
+    height: 280px;
+    width: 100%;
+    object-fit: cover; /* Evita que la imagen se estire feo */
+}
+.card-marca-image{
+    height:160px;
+    width:100%;
+    object-fit: contain;
+    background-color: #1f2124;
+    padding:10px;
+}
+/* Contenedor del texto dentro de la tarjeta */
+.peli-body {
+    background-color: #1a1a1a; /* Fondo casi negro para el texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+/* Título de la película en mayúsculas y negrita */
+.card-titulo {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+/* Limita la descripción a exactamente 3 renglones con puntos suspensivos (...) */
+.card-descripcion {
+    color: #fdfeff; /* text-muted */
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    margin-left:1rem;
+    margin-right: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Etiqueta "Desc:" resaltada en gris más claro */
+.card-desc-label {
+    color: #adb5bd;
+    font-weight: bold;
+}
+ 

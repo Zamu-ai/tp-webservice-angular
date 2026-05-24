@@ -1,0 +1,37 @@
+<div class="pantalla-oscura">
+    <h2 class="titulo-seccion">punto2</h2>
+    <div class="conteiner-grid">
+        <div class="card-marca" *ngFor="let marca of data" (click)="mostrarMarca(marca.id)" style="cursor: pointer;">
+            <h2 class="card-titulo ps-2">{{marca.name}}</h2>
+            <img class="card-marca-image" [src]="marca.image">
+        </div>
+    </div>
+    <!---modal-->
+    <div class="modal fade" id="modalModelosAutos" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Modelos de {{nombreMarcaSeleccionada}}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>    
+                </div>
+                    <div class="modal-body">
+                        <div class="container-grid">
+                            <div class="card" *ngFor="let autos of autosMarcaSeleccionado">
+                                <div>
+                                    <h3 class="card-title">{{autos.name}}</h3>
+                                    <small class="card-descripcion">ID:{{autos.id}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                <!--pie del Modal-->
+                <div class="modal-footer">
+                    <button type="button"class="btn btn-danger" data-bs-dismiss="modal">CERRAR</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
