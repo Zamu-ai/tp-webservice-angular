@@ -1,8 +1,8 @@
 <div class="pantalla-oscura">
-    <h2 class="titulo-seccion">punto2</h2>
+    <h2 class="titulo-seccion">MARCAS</h2>
     <div class="conteiner-grid">
         <div class="card-marca" *ngFor="let marca of data" (click)="mostrarMarca(marca.id)" style="cursor: pointer;">
-            <h2 class="card-titulo ps-2">{{marca.name}}</h2>
+            <h2 class="card-titulo text-white ps-2">{{marca.name}}</h2>
             <img class="card-marca-image" [src]="marca.image">
         </div>
     </div>

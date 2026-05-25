@@ -67,6 +67,10 @@
     background-color: #1f2124;
     padding:10px;
 }
+.card-marca:hover{
+     background-color: rgb(138, 108, 26);
+    transform: translateY(-20px); 
+}
 /* Contenedor del texto dentro de la tarjeta */
 .peli-body {
     background-color: #1a1a1a; /* Fondo casi negro para el texto */
