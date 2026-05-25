@@ -66,17 +66,9 @@
     color: white;
 }
 
-/* Grid de tarjetas (igual a tu punto B) */
-.conteiner-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1.5rem;
-}
+ 
 
-.card {
+.card-animes-manga {
     width: 250px;
     background-color: #1f2124;
     color: white;
@@ -87,28 +79,15 @@
     transition: transform 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-10px);
-    background-color: #2a2d31;
-}
 
-.card-image {
-    height: 300px;
-    width: 100%;
-    object-fit: cover;
-}
-
-.card-titulo {
-    font-size: 1rem;
-    padding: 10px;
-    text-align: center;
-    margin: 0;
-}
-
-.card-info {
+.card-animes-manga-info {
     display: flex;
     justify-content: space-between;
     padding: 0 10px 10px 10px;
+}
+.card-animes-manga:hover{
+background-color: rgb(138, 108, 26);
+    transform: translateY(-20px); 
 }
 
 .puntuacion {

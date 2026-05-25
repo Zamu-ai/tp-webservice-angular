@@ -3,8 +3,7 @@
     <div class="conteiner-grid">
         <div class="card" *ngFor="let pelis of data" >
             <img class="card-image" [src]="pelis.image"/>
-            <div class="peli-info-top"></div>
-            <h3 class="card-titulo ps-2">{{pelis.title}}</h3>
+             <h3 class="card-titulo ps-2">{{pelis.title}}</h3>
             <p class="card-descripcion px-2">{{pelis.description}}</p>
             <div class="d-flex flex-row flex-wrap px-3">
                 <p class="px-2">Gen: </p>

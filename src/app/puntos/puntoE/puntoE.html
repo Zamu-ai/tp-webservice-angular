@@ -19,16 +19,12 @@
                name="buscador"
                placeholder="Buscar {{ tipoSeleccionado === 'anime' ? 'anime' : 'manga' }}..."
                (keyup.enter)="buscar()">
-        <button class="btn-buscar" (click)="buscar()">
-             BUSCAR
-        </button>
-        <button class="btn-limpiar" *ngIf="terminoBusqueda" (click)="cargarPopulares()">
-             LIMPIAR
-        </button>
+        <button class="btn-buscar" (click)="buscar()"> BUSCAR</button>
+        <button class="btn-limpiar" *ngIf="terminoBusqueda" (click)="cargarPopulares()"> LIMPIAR</button>
     </div>
     
      <div class="conteiner-grid">
-        <div class="card" *ngFor="let item of listaItems" (click)="verDetalle(item.mal_id)">
+        <div class="card-animes-manga" *ngFor="let item of listaItems" (click)="verDetalle(item.mal_id)">
             <img class="card-image" [src]="item.images.jpg.image_url" [alt]="item.title">
             <h3 class="card-titulo">{{ item.title }}</h3>
             <div class="card-info">
