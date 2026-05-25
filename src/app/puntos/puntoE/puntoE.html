@@ -1,0 +1,79 @@
+<div class="pantalla-oscura">
+    <h2 class="titulo-seccion">ENCICLOPEDIA ANIME/MANGA</h2>
+    
+    
+    <div class="navbar-categorias">
+        <button *ngFor="let cat of categorias" 
+                class="btn-categoria" 
+                [class.active]="tipoSeleccionado === cat.id"
+                (click)="cambiarTipo(cat.id)">
+            {{ cat.nombre }}
+        </button>
+    </div>
+    
+    
+    <div class="buscador-container">
+        <input type="text" 
+               class="buscador-input"
+               [(ngModel)]="terminoBusqueda"
+               name="buscador"
+               placeholder="Buscar {{ tipoSeleccionado === 'anime' ? 'anime' : 'manga' }}..."
+               (keyup.enter)="buscar()">
+        <button class="btn-buscar" (click)="buscar()">
+             BUSCAR
+        </button>
+        <button class="btn-limpiar" *ngIf="terminoBusqueda" (click)="cargarPopulares()">
+             LIMPIAR
+        </button>
+    </div>
+    
+     <div class="conteiner-grid">
+        <div class="card" *ngFor="let item of listaItems" (click)="verDetalle(item.mal_id)">
+            <img class="card-image" [src]="item.images.jpg.image_url" [alt]="item.title">
+            <h3 class="card-titulo">{{ item.title }}</h3>
+            <div class="card-info">
+                <span class="puntuacion">⭐{{ item.score || 'N/A' }}</span>
+                <span class="tipo">{{ item.type || (tipoSeleccionado === 'anime' ? 'Anime' : 'Manga') }}</span>
+            </div>
+        </div>
+        
+        <!-- Mensaje si no hay resultados -->
+        <div *ngIf="listaItems.length === 0" class="sin-resultados">
+            <p>No se encontraron {{ tipoSeleccionado === 'anime' ? 'animes' : 'mangas' }}</p>
+        </div>
+    </div>
+    
+    <!-- Modal de detalles -->
+    <div class="modal fade" id="modalDetalle" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                
+                <div class="modal-header">
+                    <h4 class="modal-title">{{ itemSeleccionado?.title }}</h4>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                
+                <div class="modal-body" *ngIf="itemSeleccionado">
+                    <div class="detalle-contenedor">
+                        <img class="detalle-imagen" [src]="itemSeleccionado.images.jpg.image_url">
+                        <div class="detalle-info">
+                            <p><strong> Puntuación:</strong> {{ itemSeleccionado.score || 'Sin puntuar' }}</p>
+                            <p><strong> Año:</strong> {{ itemSeleccionado.year || itemSeleccionado.published?.prop?.from?.year || 'N/A' }}</p>
+                            <p><strong> Estado:</strong> {{ itemSeleccionado.status || 'Desconocido' }}</p>
+                            <p><strong> Géneros:</strong> 
+                                <span *ngFor="let gen of itemSeleccionado.genres; let i = index">
+                                    {{ gen.name }}<span *ngIf="i < itemSeleccionado.genres.length-1">, </span>
+                                </span>
+                            </p>
+                            <p><strong> Sinopsis:</strong> {{ itemSeleccionado.synopsis || 'No disponible' }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">CERRAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
